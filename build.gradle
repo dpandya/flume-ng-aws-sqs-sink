@@ -1,0 +1,54 @@
+/*
+ * Copyright 2016 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+apply plugin: 'java'
+apply plugin: 'maven'
+
+configurations {
+  all*.exclude group: 'org.apache.thrift', module: 'libthrift'
+}
+
+// Generate JavaDocs if project property generateJavaDoc=true
+if (project.hasProperty("generateJavaDoc")) {
+  if (project.generateJavaDoc) {
+    // custom tasks for creating javadoc jar
+    project.task('javadocJar', type: Jar, dependsOn: 'javadoc') {
+      classifier = 'javadoc'
+      from project.javadoc.destinationDir
+    }
+    // add the jar as artifacts so that it becomes available to be uploaded to the repository
+    project.artifacts {
+      archives project.javadocJar
+    }
+  }
+}
+
+dependencies {
+  compile 'com.amazonaws:aws-java-sdk:1.11.5'
+  compile 'org.slf4j:slf4j-api:1.7.21'
+  compile 'org.slf4j:jcl-over-slf4j:1.7.21'
+  compile 'org.slf4j:log4j-over-slf4j:1.7.21'
+  compile 'org.apache.flume:flume-ng-sdk:1.6.0'
+  compile 'org.apache.flume:flume-ng-core:1.6.0'
+  compile 'org.apache.commons:commons-lang3:3.0'
+  compile 'org.apache.httpcomponents:httpclient:4.5.2'
+
+  runtime 'ch.qos.logback:logback-classic:1.1.7'
+
+  testCompile 'junit:junit:4.12'
+  testCompile 'org.mockito:mockito-all:1.9.5'
+}
+
+
