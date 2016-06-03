@@ -30,8 +30,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * A sink for <a href="http://aws.amazon.com/sqs/">Amazon Simple Queue Service (Amazon SQS).</a>. <b>Configuration
- * Properties:</b> <table summary="" border=1>
+ * An <a href="https://flume.apache.org/">Apache Flume</a> sink for <a href="http://aws.amazon.com/sqs/">Amazon Simple
+ * Queue Service (Amazon SQS).</a>. <b>Configuration Properties:</b> <table summary="" border=1>
  * <tr><td><b>Name</b></td><td><b>Default</b></td><td><b>Description</b></td></tr>
  * <tr><td>sqsUrl</td><td>&nbsp;</td><td>The url of the SQS to send the messages to</td></tr>
  * <tr><td>region</td><td>us-east-1</td><td>The AWS region</td></tr> <tr><td>awsAccessKey</td><td>env
