@@ -33,8 +33,8 @@ agent.sinks.k1.alwaysSendBatches = true
 Here is another sample flume config for the sink that relies on [DefaultAWSCredentialsProviderChain](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/DefaultAWSCredentialsProviderChain.html) to look for aws credentials in the following order
 
 *   Environment Variables - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` (RECOMMENDED since they are recognized by all the AWS SDKs and CLI except for .NET), or `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` (only recognized by Java SDK)
-*   Java System Properties - aws.accessKeyId and aws.secretKey
-*   Credential profiles file at the default location (~/.aws/credentials) shared by all AWS SDKs and the AWS CLI
+*   Java System Properties - `aws.accessKeyId` and `aws.secretKey`
+*   Credential profiles file at the default location (`~/.aws/credentials`) shared by all AWS SDKs and the AWS CLI
 *   Instance profile credentials delivered through the Amazon EC2 metadata service
 
 <pre>
@@ -47,5 +47,5 @@ agent.sinks.k1.channel = c1
 agent.sinks.k1.sqsUrl = https://sqs.us-east-1.amazonaws.com/12345646/some-sqs-name
 agent.sinks.k1.region = us-east-1
 agent.sinks.k1.batchSize = 10
-agent.sinks.k1.alwaysSendBatches = true 
+agent.sinks.k1.alwaysSendBatches = true` 
 </pre>
