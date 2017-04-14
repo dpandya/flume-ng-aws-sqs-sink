@@ -71,7 +71,7 @@ import org.slf4j.LoggerFactory;
  * agent.sinks.k1.awsSecretKey = env.AWS_SECRET_KEY
  * agent.sinks.k1.region = us-east-1
  * agent.sinks.k1.batchSize = 10
- * agent.sinks.k1.alwaysSendBatches = true
+ * agent.sinks.k1.alwaysBatch = true
  * }
  * </pre>
  * <p>
@@ -94,7 +94,7 @@ import org.slf4j.LoggerFactory;
  * agent.sinks.k1.sqsUrl = https://sqs.us-east-1.amazonaws.com/12345646/some-sqs-name
  * agent.sinks.k1.region = us-east-1
  * agent.sinks.k1.batchSize = 10
- * agent.sinks.k1.alwaysSendBatches = true
+ * agent.sinks.k1.alwaysBatch = true
  * }
  * </pre>
  *
